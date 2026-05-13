@@ -4,9 +4,7 @@ from pwn import *
 from bs4 import BeautifulSoup as BS
 
 ip_attaccante = "172.17.0.1"
-ip_vittima = ""
-option = ""
-url = ""
+ip_vittima, option, url = "", "", ""
 
 def print_response_query(response):
     soup = BS(response.text, "html.parser")
@@ -18,7 +16,7 @@ def print_response_query(response):
 
 def enum_db():
 
-    # Facciamo vedere i database
+    # Facciamo vedere le tabella
     # Facciamo vedere il numero di colonne della tabella costumers
     # Facciamo vedere il contenuto della tabella customers
     # Facciamo vedere il numero di colonne della tabella costumers

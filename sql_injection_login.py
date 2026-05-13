@@ -35,14 +35,17 @@ def extract_values(query_func):
     values = []
     offset = 0
 
+    start_char = 32
+    end_char = 127
+
     while True:
         value = ""
         found_char = True
 
         while found_char:
             found_char = False
-            for j in range(32, 127):
-                if j in [37, 61]:  # 37=%, 95=_, 61==
+            for j in range(start_char, end_char):
+                if j in [37, 61]:  # 37=%, 61==
                     continue
 
                 char_to_test = chr(j)
